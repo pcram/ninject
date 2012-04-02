@@ -269,7 +269,7 @@
 
 	<target name="config-platform-silverlight-2.0">
 		<property name="nant.settings.currentframework" value="silverlight-2.0"/>
-		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_20,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS"/>
+		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_20,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS,NO_HASH_SET"/>
 		<property name="nuget.platform" value="sl2"/>
 		<property name="nuget.add" value="true"/>
 		<property name="build.platform" value="silverlight-2.0" overwrite="true"/>
@@ -277,7 +277,7 @@
 
 	<target name="config-platform-silverlight-3.0">
 		<property name="nant.settings.currentframework" value="silverlight-3.0"/>
-		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_30,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS"/>
+		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_30,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS,NO_HASH_SET"/>
 		<property name="nuget.platform" value="sl3"/>
 		<property name="nuget.add" value="true"/>
 		<property name="build.platform" value="silverlight-3.0" overwrite="true"/>
@@ -301,7 +301,7 @@
 	
 	<target name="config-platform-silverlight-4.0-wp7">
 		<property name="nant.settings.currentframework" value="silverlight-wp7"/>
-		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_40,WINDOWS_PHONE,NO_LCG,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS,NO_MOQ"/>
+		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_40,WINDOWS_PHONE,NO_LCG,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS,NO_MOQ,NO_HASH_SET"/>
 		<property name="nuget.platform" value="sl3-wp"/>
 		<property name="nuget.add" value="true"/>
 		<property name="build.platform" value="silverlight-4.0-wp7" overwrite="true"/>
@@ -309,7 +309,7 @@
 
 	<target name="config-platform-silverlight-4.0-wp71">
 		<property name="nant.settings.currentframework" value="silverlight-wp71"/>
-		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_40,WINDOWS_PHONE,NO_LCG,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS,NO_MOQ"/>
+		<property name="build.defines" value="${global.build.defines},SILVERLIGHT,SILVERLIGHT_40,WINDOWS_PHONE,NO_LCG,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_SKIP_VISIBILITY,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS,NO_MOQ,NO_HASH_SET"/>
 		<property name="nuget.platform" value="sl4-windowsphone71"/>
 		<property name="nuget.add" value="true"/>
 		<property name="build.platform" value="silverlight-4.0-wp71" overwrite="true"/>
@@ -317,28 +317,28 @@
 
 	<target name="config-platform-netcf-3.5">
 		<property name="nant.settings.currentframework" value="netcf-3.5"/>
-		<property name="build.defines" value="${global.build.defines},NETCF,NETCF_35,NO_LCG,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS"/>
+		<property name="build.defines" value="${global.build.defines},NETCF,NETCF_35,NO_LCG,NO_ASSEMBLY_SCANNING,NO_PARTIAL_TRUST,NO_EXCEPTION_SERIALIZATION,NO_DEBUG_SYMBOLS,NO_HASH_SET"/>
 		<property name="nuget.add" value="false"/>
 		<property name="build.platform" value="netcf-3.5" overwrite="true"/>
 	</target>
 
 	<target name="config-platform-mono-2.0">
 		<property name="nant.settings.currentframework" value="mono-2.0"/>
-		<property name="build.defines" value="${global.build.defines},NET,NET_35,MONO,MONO_20,NO_GENERIC_MOQ" />
+		<property name="build.defines" value="${global.build.defines},NET,NET_35,MONO,MONO_20,NO_GENERIC_MOQ,NO_HASH_SET" />
 		<property name="nuget.add" value="false"/>
 		<property name="build.platform" value="mono-2.0" overwrite="true"/>
 	</target>
 	
 	<target name="config-platform-mono-3.5">
 		<property name="nant.settings.currentframework" value="mono-3.5"/>
-		<property name="build.defines" value="${global.build.defines},NET,NET_35,MONO,MONO_35,NO_GENERIC_MOQ" />
+		<property name="build.defines" value="${global.build.defines},NET,NET_35,MONO,MONO_35,NO_GENERIC_MOQ,NO_HASH_SET" />
 		<property name="nuget.add" value="false"/>
 		<property name="build.platform" value="mono-3.5" overwrite="true"/>
 	</target>
 
 	<target name="config-platform-mono-4.0">
 		<property name="nant.settings.currentframework" value="mono-4.0"/>
-		<property name="build.defines" value="${global.build.defines},NET,NET_40,MONO,MONO_40,NO_GENERIC_MOQ" />
+		<property name="build.defines" value="${global.build.defines},NET,NET_40,MONO,MONO_40,NO_GENERIC_MOQ,NO_HASH_SET" />
 		<property name="nuget.add" value="false"/>
 		<property name="build.platform" value="mono-4.0" overwrite="true"/>
 		<property name="path.tools.xunit.console" value="${path.tools.xunit}/xunit.console.clr4.exe"/>

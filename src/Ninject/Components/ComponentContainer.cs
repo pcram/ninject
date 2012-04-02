@@ -27,7 +27,7 @@ namespace Ninject.Components
     {
         private readonly Multimap<Type, Type> _mappings = new Multimap<Type, Type>();
         private readonly Dictionary<Type, INinjectComponent> _instances = new Dictionary<Type, INinjectComponent>();
-        private readonly HashSet<KeyValuePair<Type, Type>> transients = new HashSet<KeyValuePair<Type, Type>>();
+        private readonly NinjectHashSet<KeyValuePair<Type, Type>> transients = new NinjectHashSet<KeyValuePair<Type, Type>>();
 
         /// <summary>
         /// Gets or sets the kernel that owns the component container.
@@ -231,22 +231,5 @@ namespace Ninject.Components
 
             return constructor;
         }
-
-#if SILVERLIGHT_30 || SILVERLIGHT_20 || WINDOWS_PHONE || NETCF_35
-        private class HashSet<T>
-        {
-            private IDictionary<T, object> data = new Dictionary<T,object>();
- 
-            public void Add(T o)
-            {
-                this.data.Add(o, null);
-            }
-
-            public bool Contains(T o)
-            {
-                return this.data.ContainsKey(o);
-            }
-        }
-#endif
     }
 }
