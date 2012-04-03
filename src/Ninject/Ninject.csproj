@@ -93,6 +93,8 @@
     <Compile Include="Infrastructure\Language\ExtensionsForType.cs" />
     <Compile Include="Infrastructure\Language\NinjectHashSet.cs" />
     <Compile Include="Infrastructure\Language\TypeInfo.cs" />
+    <Compile Include="Infrastructure\Threading\NinjectTimer.WinRt.cs" />
+    <Compile Include="Infrastructure\Threading\NinjectTimer.cs" />
     <Compile Include="Infrastructure\Threading\ReaderWriterLock.cs" />
     <Compile Include="Modules\AssemblyNameRetriever.cs" />
     <Compile Include="Modules\IAssemblyNameRetriever.cs" />
