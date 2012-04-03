@@ -358,11 +358,7 @@ namespace Ninject.Infrastructure.Introspection
                 FormatAttribute(sw, attribute);
             }
 
-#if !WINRT
-            sw.Write(constructor.DeclaringType.Name);
-#else
             sw.Write(constructor.DeclaringType.GetTypeInfo().Name);
-#endif
             sw.Write("(");
             foreach (var parameterInfo in constructor.GetParameters())
             {

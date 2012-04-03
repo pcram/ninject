@@ -9,16 +9,11 @@
 #endregion
 #region Using Directives
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
-#if WINRT
 using System.Diagnostics;  
-#endif
 using Ninject.Activation;
-using Ninject.Activation.Providers;
-using Ninject.Infrastructure.Language;
 using Ninject.Planning.Bindings;
 using Ninject.Planning.Targets;
 #endregion
@@ -201,27 +196,14 @@ namespace Ninject.Infrastructure.Introspection
         /// <returns>The type formatted as string.</returns>
         public static string Format(this Type type)
         {
-            if (type
-#if WINRT
-                .GetTypeInfo()
-#endif
-                .IsGenericType)
+            if (type.GetTypeInfo().IsGenericType)
             {
                 var sb = new StringBuilder();
-
-#if !WINRT
-                sb.Append(type.Name.Substring(0, type.Name.LastIndexOf('`')));
-#else
-                var ti = type.GetTypeInfo();
-                sb.Append(ti.Name.Substring(ti.Name.LastIndexOf('`')));
-#endif
+                var name = type.GetTypeInfo().Name;
+                sb.Append(name.Substring(name.LastIndexOf('`')));
                 sb.Append("{");
 
-#if !WINRT
-                var args = type.GetGenericArguments();
-#else
                 var args = type.GetTypeInfo().GenericTypeArguments;
-#endif
                 foreach (Type genericArgument in args)
                 {
                     sb.Append(genericArgument.Format());
@@ -254,8 +236,6 @@ namespace Ninject.Infrastructure.Introspection
                 case TypeCode.String: return "string";
                 default: return type.Name;
             }
-#elif !WINRT
-            return type.Name;
 #else
             return type.GetTypeInfo().Name;
 #endif

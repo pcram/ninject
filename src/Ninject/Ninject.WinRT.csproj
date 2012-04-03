@@ -94,6 +94,7 @@
     <Compile Include="Infrastructure\Language\ExtensionsForIEnumerableOfT.cs" />
     <Compile Include="Infrastructure\Language\ExtensionsForMemberInfo.cs" />
     <Compile Include="Infrastructure\Language\ExtensionsForTargetInvocationException.cs" />
+    <Compile Include="Infrastructure\Language\HashSet.cs" />
     <Compile Include="Infrastructure\Multimap.cs" />
     <Compile Include="Infrastructure\ReferenceEqualWeakReference.cs" />
     <Compile Include="Infrastructure\StandardScopeCallbacks.cs" />

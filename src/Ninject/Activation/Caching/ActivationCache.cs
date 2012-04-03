@@ -1,6 +1,7 @@
 namespace Ninject.Activation.Caching
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Ninject.Components;
     using Ninject.Infrastructure;
 
@@ -138,15 +139,7 @@ namespace Ninject.Activation.Caching
         /// <param name="objects">The objects collection to be freed of dead objects.</param>
         private static void RemoveDeadObjects(NinjectHashSet<object> objects)
         {
-#if WINRT
-            var deadObjects = objects.Where(reference => !((ReferenceEqualWeakReference)reference).IsAlive).ToList();
-            foreach (var deadObject in deadObjects)
-            {
-                objects.Remove(deadObject);
-            }
-#else
             objects.RemoveWhere(reference => !((ReferenceEqualWeakReference)reference).IsAlive);
-#endif
         }
     }
 }

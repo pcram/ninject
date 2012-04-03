@@ -519,20 +519,12 @@ namespace Ninject
         [Obsolete]
         protected virtual bool TypeIsSelfBindable(Type service)
         {
-#if !WINRT
-            return !service.IsInterface
-                && !service.IsAbstract
-                && !service.IsValueType
+            var serviveTypeInfo = service.GetTypeInfo();
+            return !serviveTypeInfo.IsInterface
+                && !serviveTypeInfo.IsAbstract
+                && !serviveTypeInfo.IsValueType
                 && service != typeof(string)
-                && !service.ContainsGenericParameters;
-#else
-            var sInfo = service.GetTypeInfo();
-            return !sInfo.IsInterface
-                && !sInfo.IsAbstract
-                && !sInfo.IsValueType
-                && service != typeof(string)
-                && !sInfo.ContainsGenericParameters;
-#endif
+                && !serviveTypeInfo.ContainsGenericParameters;
         }
 
         /// <summary>
@@ -578,11 +570,7 @@ namespace Ninject
                             {
                                 b => b != null,       // null bindings should never happen, but just in case
                                 b => b.IsConditional, // conditional bindings > unconditional
-#if !WINRT
-                                b => !b.Service.ContainsGenericParameters, // closed generics > open generics
-#else
                                 b => !b.Service.GetTypeInfo().ContainsGenericParameters, // closed generics > open generics
-#endif
                                 b => !b.IsImplicit,   // explicit bindings > implicit
                             };
 

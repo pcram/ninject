@@ -14,12 +14,10 @@ using System.Linq;
 using System.Reflection;
 using Ninject.Infrastructure;
 using Ninject.Infrastructure.Introspection;
-using Ninject.Infrastructure.Language;
 using Ninject.Injection;
 using Ninject.Parameters;
 using Ninject.Planning.Directives;
 using Ninject.Planning.Targets;
-
 #if WINRT
 using System.Reflection.RuntimeExtensions;
 #endif

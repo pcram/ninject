@@ -123,17 +123,9 @@ namespace Ninject.Activation.Providers
         public Type GetImplementationType(Type service)
         {
             Ensure.ArgumentNotNull(service, "service");
-            return Type
-#if WINRT
-                .GetTypeInfo()
-#endif
-                .ContainsGenericParameters ? Type.MakeGenericType(
-#if !WINRT
-                service.GetGenericArguments()
-#else
-                service.GetTypeInfo().GenericTypeArguments
-#endif
-                ) : Type;
+            return Type.GetTypeInfo().ContainsGenericParameters 
+                ? Type.MakeGenericType(service.GetTypeInfo().GenericTypeArguments) 
+                : Type;
         }
 
         /// <summary>
