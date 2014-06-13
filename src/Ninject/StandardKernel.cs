@@ -97,7 +97,7 @@ namespace Ninject
             Components.Add<IMissingBindingResolver, DefaultValueBindingResolver>();
             Components.Add<IMissingBindingResolver, SelfBindingResolver>();
 
-#if !NO_LCG
+#if !NO_LCG && !WINRT
             if (!Settings.UseReflectionBasedInjection)
             {
                 Components.Add<IInjectorFactory, DynamicMethodInjectorFactory>();

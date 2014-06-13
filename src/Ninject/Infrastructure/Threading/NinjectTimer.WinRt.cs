@@ -1,13 +1,17 @@
+using Windows.System.Threading;
+
 #if WINRT
+public delegate void NinjectTimerCallback();
+
 namespace Ninject.Infrastructure.Threading
 {
     using System;
 
-    public class NinjectTimer2 : IDisposable
+    public class NinjectTimer : IDisposable
     {
         private ThreadPoolTimer timer;
 
-        public NinjectTimer2(NinjectTimerCallback callback, long interval)
+        public NinjectTimer(NinjectTimerCallback callback, long interval)
         {
             this.timer = ThreadPoolTimer.CreatePeriodicTimer(t => callback(), TimeSpan.FromMilliseconds(interval));            
         }
