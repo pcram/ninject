@@ -109,7 +109,7 @@ namespace Ninject.Selection
             properties.AddRange(
                 type.GetRuntimeProperties().FilterPublic(Settings.InjectNonPublic)
                     .Select(p => p.GetPropertyFromDeclaredType(p))
-                    .Where(p => this.InjectionHeuristics.Any(h => h.ShouldInject(p))));
+                    .Where(p => p != null && this.InjectionHeuristics.Any(h => h.ShouldInject(p))));
 #endif
 #if !SILVERLIGHT 
             if (this.Settings.InjectParentPrivateProperties)
