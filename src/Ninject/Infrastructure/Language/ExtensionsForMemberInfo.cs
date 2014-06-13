@@ -109,6 +109,7 @@ namespace Ninject.Infrastructure.Language
 #if WINRT
             return memberInfo.DeclaringType.GetRuntimeProperties().FirstOrDefault(
                 p => p.Name == propertyDefinition.Name &&
+					 p.GetMethod != null && 
                     !p.GetMethod.IsStatic && 
                      p.PropertyType == propertyDefinition.PropertyType &&
                      p.GetIndexParameters().SequenceEqual(propertyDefinition.GetIndexParameters(), new ParameterInfoEqualityComparer())
